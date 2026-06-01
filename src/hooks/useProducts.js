@@ -1,15 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 
-const PRODUCTS_API_URL = 'https://fakestoreapi.com/products'
+const PRODUCTS_URL = 'https://dummyjson.com/products?limit=30'
 
 async function fetchProducts() {
-  const response = await fetch(PRODUCTS_API_URL)
-
-  if (!response.ok) {
-    throw new Error(`Failed to load products: ${response.status}`)
-  }
-
-  return response.json()
+  const response = await fetch(PRODUCTS_URL)
+  if (!response.ok) throw new Error(`Failed to load products: ${response.status}`)
+  const data = await response.json()
+  return data.products
 }
 
 export function useProducts() {
