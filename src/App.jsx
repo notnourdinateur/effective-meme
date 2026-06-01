@@ -5,6 +5,7 @@ import ExplorePage from './pages/ExplorePage'
 import WorkspacePage from './pages/WorkspacePage'
 import ApiPlaygroundPage from './pages/ApiPlaygroundPage'
 import DemDashboardPage from './pages/DemDashboardPage'
+import ProductsPage from './pages/ProductsPage'
 import NotFoundPage from './pages/NotFoundPage'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
@@ -23,6 +24,7 @@ function App() {
           <Route path="/workspace" element={<WorkspacePage />} />
           <Route path="/agents" element={<ApiPlaygroundPage />} />
           <Route path="/dashboard" element={<DemDashboardPage />} />
+          <Route path="/products" element={<ProductsPage />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />

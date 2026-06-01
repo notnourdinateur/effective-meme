@@ -4,6 +4,7 @@ import { buttonVariants } from '../ui/button'
 const navItems = [
   
   { label: 'Home', to: '/' },
+  { label: 'Products', to: '/products' },
   { label: 'Dashboard', to: '/dashboard' },
   { label: 'Workspace', to: '/workspace' },
   { label: 'Explore', to: '/explore' },
