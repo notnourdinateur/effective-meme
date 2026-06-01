@@ -1,32 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
 @import 'tailwindcss';
 
 @layer base {
   :root {
-    --background: 223 44% 6%;
-    --foreground: 213 67% 96%;
-    --card: 220 42% 12%;
-    --card-foreground: 213 67% 96%;
-    --popover: 220 42% 12%;
-    --popover-foreground: 213 67% 96%;
-    --primary: 196 90% 68%;
-    --primary-foreground: 223 44% 6%;
-    --secondary: 216 31% 18%;
-    --secondary-foreground: 213 67% 96%;
-    --muted: 216 31% 18%;
-    --muted-foreground: 215 21% 67%;
-    --accent: 44 91% 71%;
-    --accent-foreground: 223 44% 6%;
-    --destructive: 0 84% 60%;
+    /* Shopify green as primary, Shopify purple as accent */
+    --background: 160 12% 6%;
+    --foreground: 150 20% 94%;
+    --card: 158 10% 11%;
+    --card-foreground: 150 20% 94%;
+    --popover: 158 10% 11%;
+    --popover-foreground: 150 20% 94%;
+    --primary: 82 41% 52%;          /* Shopify green #96BF48 */
+    --primary-foreground: 160 12% 6%;
+    --secondary: 158 10% 17%;
+    --secondary-foreground: 150 20% 94%;
+    --muted: 158 10% 17%;
+    --muted-foreground: 150 10% 58%;
+    --accent: 243 47% 56%;          /* Shopify indigo #5C6AC4 */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 3 74% 55%;
     --destructive-foreground: 0 0% 98%;
-    --border: 216 31% 26%;
-    --input: 216 31% 26%;
-    --ring: 196 90% 68%;
-    --radius: 1rem;
+    --border: 158 10% 22%;
+    --input: 158 10% 22%;
+    --ring: 82 41% 52%;
+    --radius: 0.5rem;               /* Shopify uses tighter radius */
 
-    font-family: 'Outfit', sans-serif;
-    color: #e2edfb;
-    background-color: #070f1d;
+    font-family: 'Inter', sans-serif;
+    color: #e6f0ea;
+    background-color: #0a0f0c;
   }
 
   html,
@@ -38,17 +39,17 @@
   body {
     margin: 0;
     min-height: 100vh;
-    background-color: #070f1d;
+    background-color: #0a0f0c;
     background-image:
-      radial-gradient(circle at 18% 12%, rgba(56, 181, 239, 0.17), transparent 36%),
-      radial-gradient(circle at 83% 9%, rgba(246, 211, 111, 0.14), transparent 30%),
-      radial-gradient(circle at 49% 100%, rgba(101, 226, 171, 0.12), transparent 35%);
+      radial-gradient(circle at 18% 12%, rgba(150, 191, 72, 0.13), transparent 36%),
+      radial-gradient(circle at 83% 9%, rgba(92, 106, 196, 0.11), transparent 30%),
+      radial-gradient(circle at 49% 100%, rgba(72, 161, 109, 0.10), transparent 35%);
   }
 
   h1,
   h2,
   h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
   }
 
