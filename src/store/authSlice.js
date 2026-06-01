@@ -12,18 +12,26 @@ const authSlice = createSlice({
     login(state, action) {
       const email = action.payload?.trim().toLowerCase()
 
-      if (!email || !state.allowedEmails.includes(email)) {
-        return
-      }
+      if (!email || !state.allowedEmails.includes(email)) return
 
       state.currentUserEmail = email
     },
+
     logout(state) {
       state.currentUserEmail = null
+    },
+
+    register(state, action) {
+      const email = action.payload?.trim().toLowerCase()
+
+      if (!email) return
+      if (state.allowedEmails.includes(email)) return
+
+      state.allowedEmails.push(email)
+      state.currentUserEmail = email 
     },
   },
 })
 
-export const { login, logout } = authSlice.actions
-
+export const { login, logout, register } = authSlice.actions
 export default authSlice.reducer
