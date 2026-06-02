@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { useProducts } from '../../hooks/useProducts'
 import ProductCard from './ProductCard'
+import ProductModal from './ProductModal'
 
 function ProductGridSkeleton() {
   return (
@@ -22,6 +24,7 @@ function ProductGridSkeleton() {
 
 function ProductGrid({ searchQuery = '', selectedCategory = 'all' }) {
   const { data: products, isLoading, isError, error } = useProducts()
+  const [selectedProduct, setSelectedProduct] = useState(null)
 
   if (isLoading) return <ProductGridSkeleton />
 
@@ -53,11 +56,24 @@ function ProductGrid({ searchQuery = '', selectedCategory = 'all' }) {
   }
 
   return (
-    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {filtered.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+    <>
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {filtered.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onProductClick={setSelectedProduct}
+          />
+        ))}
+      </div>
+
+      {selectedProduct && (
+        <ProductModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
+    </>
   )
 }
 

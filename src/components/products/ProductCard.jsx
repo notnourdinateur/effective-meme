@@ -19,12 +19,15 @@ function StarRating({ rating }) {
   )
 }
 
-function ProductCard({ product }) {
+function ProductCard({ product, onProductClick }) {
   const dispatch = useDispatch()
   const discountedPrice = (product.price * (1 - product.discountPercentage / 100)).toFixed(2)
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-line-700 bg-surface-900/75 transition-all duration-200 hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-300/5">
+    <article
+      onClick={() => onProductClick?.(product)}
+      className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-line-700 bg-surface-900/75 transition-all duration-200 hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-300/5"
+    >
       <div className="relative overflow-hidden bg-canvas-900">
         <img
           src={product.thumbnail}
@@ -66,7 +69,10 @@ function ProductCard({ product }) {
         </p>
 
         <button
-          onClick={() => dispatch(addToCart({ ...product, image: product.thumbnail }))}
+          onClick={(e) => {
+            e.stopPropagation()
+            dispatch(addToCart({ ...product, image: product.thumbnail }))
+          }}
           disabled={product.stock === 0}
           className="mt-auto w-full rounded-xl bg-brand-300 py-2 text-sm font-semibold text-canvas-950 transition hover:bg-brand-200 disabled:cursor-not-allowed disabled:opacity-40"
         >

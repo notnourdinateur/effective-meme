@@ -2,6 +2,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../../store/authSlice'
 import { buttonVariants } from '../ui/button'
+import CartDropdown from '../products/CartDropdown'
 
 const navItems = [
   { label: 'Home', to: '/' },
@@ -75,6 +76,10 @@ function AppLayout() {
               </button>
             )}
           </nav>
+           {/* Cart dropdown — isolated from header blur */}
+            <div>
+              <CartDropdown />
+            </div>
         </div>
       </header>
 
